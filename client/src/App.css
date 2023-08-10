@@ -232,6 +232,52 @@ h2{
    animation: moving-arrow 0.6s linear infinite;
 }
 
+.contact-cont {
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   position: relative;
+   text-align: center;
+}
+
+.email-cont {
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   position: relative;
+   text-align: center;
+}
+
+.info-cont {
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   position: relative;
+   text-align: center;
+}
+
+.social-cont {
+  
+   position: relative;
+   text-align: center;
+}
+
+.facebook-cont {
+   display: block;
+   position: relative;
+   text-align: center;
+}
+
+.github {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   position: relative;
+   text-align: center;
+   width: 100%;
+
+}
 
 /* media */
 @media (min-width: 768px) {

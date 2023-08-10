@@ -34,7 +34,7 @@ const SearchBar = () => {
    value={searchInput} />
 
 <table>
-
+  {}
 
 {categoriesOfGift.map((category, index) => {
     

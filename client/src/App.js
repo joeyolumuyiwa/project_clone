@@ -16,8 +16,13 @@ import UserContext from "./components/UserContext";
 import { useLocation } from 'react-router-dom'
 import Landing from "./components/Landing";
 import axios from "axios";
+import Search from "./components/Search"
+import Movies from "./components/Movies";
+import Footer from "./components/Footer";
 
 function App() {
+
+
 const location = useLocation()
 
   const [authenticated, setAuthenticated] = useState(false);
@@ -84,6 +89,12 @@ const logoutHandler = () => {
     localStorage.removeItem("my-app-token"); 
 };
 
+const [moviesData, setMoviesData] = useState([])
+
+  useEffect(()=>{
+    console.log(moviesData)
+  }, [moviesData])
+
   return (
     <UserContext.Provider
       value={[
@@ -114,6 +125,14 @@ const logoutHandler = () => {
           />
         </Routes>
       </div>
+
+      <div className="App">
+      Movie Api
+
+      <Search setMoviesData = {setMoviesData}/>
+      <Movies moviesData={moviesData}/>
+      <Footer/>
+    </div>
     </UserContext.Provider>
   );
 

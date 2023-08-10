@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import SearchBar from "./SearchBar";
 
 const Home = () => {
    const [usersNum, setUsersNum] = useState(null);
@@ -29,9 +28,7 @@ const Home = () => {
             </div>
 
          </div>
-            <div>
-<SearchBar/>
-            </div>
+            
       
       </div>
    );

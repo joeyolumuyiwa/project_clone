@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import { NavLink } from "react-router-dom";
 import UserContext from "./UserContext";
+import SearchBar from "./SearchBar";
 
 const NavBar = () => {
    const [{authenticated}, {name},,, {avatar}, {logoutHandler}] = useContext(UserContext)
@@ -8,6 +9,8 @@ const NavBar = () => {
    return <>
       <header className="header" id="header">
          <div className="container">
+
+            
            { authenticated && <div style={{display:"flex",alignItems:"center"}}>
             {avatar && <img src={avatar} alt="User Avatar" style={{width:"60px", height:"60px", borderRadius:"50%", marginRight:"10px"}} />}
                <h2>Welcome {name}</h2>
@@ -15,6 +18,11 @@ const NavBar = () => {
             <NavLink to='/home' className="logo">
                Gift4U
             </NavLink>
+
+            <div>
+<SearchBar/>
+            </div>
+
             <ul className="main-nav">
                <li>
                   {!authenticated && <NavLink to='/register'> Register </NavLink>}
@@ -30,6 +38,8 @@ const NavBar = () => {
                   }
                </li>
             </ul>
+
+       
          </div>
       </header>
    </>;
