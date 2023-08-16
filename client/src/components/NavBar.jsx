@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserContext from "./UserContext";
 import "./Navbar.css";
+import Search from "./Search";
 
 const NavBar = () => {
   const [
@@ -50,6 +51,11 @@ const NavBar = () => {
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
+          <div>
+<Search/>
+            </div>
+
+
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <NavLink
