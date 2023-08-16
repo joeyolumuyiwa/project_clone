@@ -26,9 +26,7 @@ const Home = () => {
                </p>
                <h2>We have right now {usersNum} Customers.</h2>
             </div>
-
          </div>
-            
       
       </div>
    );

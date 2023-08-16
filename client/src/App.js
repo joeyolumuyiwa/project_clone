@@ -16,13 +16,10 @@ import UserContext from "./components/UserContext";
 import { useLocation } from 'react-router-dom'
 import Landing from "./components/Landing";
 import axios from "axios";
-import Search from "./components/Search"
-import Movies from "./components/Movies";
 import Footer from "./components/Footer";
 
+
 function App() {
-
-
 const location = useLocation()
 
   const [authenticated, setAuthenticated] = useState(false);
@@ -30,6 +27,7 @@ const location = useLocation()
   const [userId, setUserId] = useState("");
   const [email, setEmail] = useState("");
   const [avatar, setAvatar] = useState("")
+  const [click, setClick] = useState(false);
 
   let token;
 
@@ -45,7 +43,7 @@ const location = useLocation()
     },
   };
 
-/*     useEffect(() => {
+     useEffect(() => {
     if (token !== null) {
       axios
         .get(`${process.env.REACT_APP_BE_URL}/api/user/authorize-user`, configuration)
@@ -53,7 +51,7 @@ const location = useLocation()
           setName(res.data.name);
           setAuthenticated(true);
           setUserId(res.data.userId);
-          setAvatar(res.data.avatar)
+          res.data.avatar? setAvatar(res.data.avatar) : setAvatar("https://cdn-icons-png.flaticon.com/512/6388/6388000.png") 
         })
         .catch((err) => {
           if(err.response.status === 401)
@@ -62,38 +60,17 @@ const location = useLocation()
           console.log(err.message)
         });
     }
-  }, []);   */
-
-    if (token !== null) {
-    axios
-      .get(`${process.env.REACT_APP_BE_URL}/api/user/authorize-user`, configuration)
-      .then((res) => {
-        setName(res.data.name);
-        setAuthenticated(true);
-        setUserId(res.data.userId);
-        setAvatar(res.data.avatar)
-      })
-      .catch((err) => {
-        if(err.response.status === 401)
-        localStorage.removeItem("my-app-token");
-        localStorage.removeItem("my-profile");
-        console.log(err.message)
-      });
-  } 
- 
-
+  }, []);   
+  
 
 const logoutHandler = () => {
   setAuthenticated(false);
     localStorage.removeItem("my-profile");
     localStorage.removeItem("my-app-token"); 
+    setName("");
+    setAvatar("")
+    setClick(false)
 };
-
-const [moviesData, setMoviesData] = useState([])
-
-  useEffect(()=>{
-    console.log(moviesData)
-  }, [moviesData])
 
   return (
     <UserContext.Provider
@@ -103,7 +80,8 @@ const [moviesData, setMoviesData] = useState([])
         { userId: userId, setUserId: setUserId },
         { email: email, setEmail: setEmail },
         {avatar: avatar, setAvatar: setAvatar},
-        {logoutHandler: logoutHandler}
+        {logoutHandler: logoutHandler},
+        {click: click, setClick: setClick}
       ]}
     >
       {location.pathname !== "/" && <  NavBar />}
@@ -120,23 +98,18 @@ const [moviesData, setMoviesData] = useState([])
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/change-password" element={<ChangePassword />} />
           <Route
-            path="/reset-password/:email/:token"
+            path="/reset-password/:email/:tokWe bring a digital assistant to issue prepaid cards & gift cards directly to you. Wherever you are, whenever you need them, looking for subscriptions, games, shopping vouchers, choose from a wide variety of vendors and buy your eGift cards online with fast email delivery!
+            en"
             element={<PasswordRecovery />}
           />
         </Routes>
+        {/* {location.pathname !== "/" && <  Footer />} */}
+
       </div>
-
-      <div className="App">
-      Movie Api
-
-      <Search setMoviesData = {setMoviesData}/>
-      <Movies moviesData={moviesData}/>
-      <Footer/>
-    </div>
+          <div><Footer/></div>
+      
     </UserContext.Provider>
   );
-
-  
 }
 
 export default App;
