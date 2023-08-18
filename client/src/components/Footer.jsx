@@ -52,8 +52,8 @@ export default function Footer() {
 
             <ul className='list-unstyled'>
               <li>
-                <a href='#!' className='text-white'>
-                  Link 1
+                <a href='/privacy-policy' className='text-white'>
+                Privacy Policy                
                 </a>
               </li>
               <li>
