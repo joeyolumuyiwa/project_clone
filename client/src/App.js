@@ -18,6 +18,7 @@ import Landing from "./components/Landing";
 import axios from "axios";
 import Footer from "./components/Footer";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsAndConditions from "./components/TermsAndConditions";
 
 
 function App() {
@@ -92,6 +93,7 @@ const logoutHandler = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/register" element={<Register />} />
           <Route path="/confirm-email/:token" element={<ConfirmEmail />} />
           <Route path="/redirect" element={<Redirect />} />

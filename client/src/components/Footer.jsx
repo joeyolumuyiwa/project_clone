@@ -57,8 +57,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href='#!' className='text-white'>
-                  Link 2
+                <a href='/terms-and-conditions' className='text-white'>
+                  Terms and Conditions
                 </a>
               </li>
               <li>
